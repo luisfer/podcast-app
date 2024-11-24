@@ -14,3 +14,11 @@ export interface Episode {
     publishDate: string;
     duration: string;
 }
+
+export interface ItunesPodcast {
+    id: { attributes: { 'im:id': string } };
+    'im:name': { label: string };
+    'im:artist': { label: string };
+    summary?: { label: string };
+    'im:image': Array<{ label: string }>;
+  }
