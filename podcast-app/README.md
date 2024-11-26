@@ -138,3 +138,73 @@ npm run start
 - 24-hour caching
 - Loading indicators
 - Responsive design
+
+
+## Requirements vs Implementation
+
+Core Views Required:
+
+- Main view (/): Podcast list
+- Podcast detail (/podcast/{podcastId})
+- Episode detail (/podcast/{podcastId}/episode/{episodeId})
+
+
+Main View Requirements:
+
+- Shows top 100 podcasts
+- 24h client-side cache for the list
+- Text filtering (title and author)
+- Real-time filtering
+- Navigation to detail view works
+
+
+Podcast Detail Requirements:
+
+- Sidebar with image, title, author, description
+- Shows episode count
+- Episodes list with title, date, duration
+- 24h cache for podcast details
+- Navigation to episodes works
+
+
+Episode Detail Requirements:
+
+- Shows same sidebar as podcast detail
+- Shows episode title
+- Shows description with HTML rendered
+- Has HTML5 native audio player
+
+
+Header Requirements:
+
+- Title links to main view
+- Shows loading indicator during navigation
+
+
+Technical Requirements:
+
+- Clean URLs (no hash routing)
+- Development mode (unminified assets)
+- Production mode (minified assets)
+- CSS written from scratch
+- No component libraries used
+- Using Context API
+- TypeScript implementation
+
+
+Code Quality Requirements:
+
+- Clear code structure
+- SOLID principles
+- Layer separation
+- Clean console (no errors)
+- Proper README
+- Modular solution
+- Git usage with standard nomenclature
+
+
+Optional Improvements:
+
+- Application deployed
+- SSR implementation
+- CSS variables usage
