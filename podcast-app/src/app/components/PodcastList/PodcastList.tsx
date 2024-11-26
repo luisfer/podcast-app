@@ -5,6 +5,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useTopPodcasts } from '@/hooks/useQueries';
 import styles from './PodcastList.module.css';
+import Loading from '@/app/components/Loading/loading';
 
 export function PodcastList() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -49,7 +50,7 @@ export function PodcastList() {
       </div>
 
       {isLoading ? (
-        <div>Loading podcasts...</div>
+        <Loading />
       ) : (
         <div className={styles.grid}>
           {filteredPodcasts.map((podcast) => (

@@ -4,6 +4,7 @@ import { PodcastSidebar } from '@/app/components/PodcastSidebar';
 import styles from '../../podcast/[podcastId]/episode/[episodeId]/styles.module.css';
 import layoutStyles from '../../podcast/[podcastId]/styles.module.css';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
+import Loading from '@/app/components/Loading/loading';
 
 interface EpisodeDetailProps {
   podcastId: string;
@@ -18,7 +19,7 @@ export function EpisodeDetail({ podcastId, episodeId }: EpisodeDetailProps) {
   }
 
   if (loading) {
-    return <div className="container">Loading...</div>;
+    return <Loading />;
   }
 
   const episode = episodes.find(ep => ep.id === episodeId);

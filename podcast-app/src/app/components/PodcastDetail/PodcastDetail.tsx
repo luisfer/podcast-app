@@ -4,6 +4,7 @@ import { PodcastSidebar } from '@/app/components/PodcastSidebar';
 import { EpisodesList } from '@/app/components/EpisodesList';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 import styles from '../../podcast/[podcastId]/styles.module.css';
+import Loading from '@/app/components/Loading/loading';
 
 interface PodcastDetailProps {
   podcastId: string;
@@ -27,7 +28,7 @@ export function PodcastDetail({ podcastId }: PodcastDetailProps) {
       />    
       <div className={styles.main}>
         {loading ? (
-          <p data-testid="loading-episodes">Loading episodes...</p>
+          <Loading />
         ) : (
           <EpisodesList 
             episodes={episodes} 

@@ -5,6 +5,7 @@ import { Header } from '@/app/components/Header';
 import './styles/variables.css';
 import './globals.css';
 import { Suspense } from 'react';
+import Loading from '@/app/components/Loading/loading';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading />}>
             <Header />
             <main className="main">
               {children}
