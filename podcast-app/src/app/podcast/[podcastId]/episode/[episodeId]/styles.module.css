@@ -1,0 +1,26 @@
+.episodeCard {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .description {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .audioPlayer {
+    width: 100%;
+    margin-top: var(--spacing-lg);
+  }

@@ -1,8 +1,9 @@
 'use client';
 
-import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 import { PodcastSidebar } from '@/app/components/PodcastSidebar';
-import styles from './EpisodeDetail.module.css';
+import styles from '../../podcast/[podcastId]/episode/[episodeId]/styles.module.css';
+import layoutStyles from '../../podcast/[podcastId]/styles.module.css';
+import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 
 interface EpisodeDetailProps {
   podcastId: string;
@@ -27,15 +28,15 @@ export function EpisodeDetail({ podcastId, episodeId }: EpisodeDetailProps) {
   }
 
   return (
-    <div className={styles.layout}>
+    <div className={layoutStyles.layout}>
       <PodcastSidebar
         id={podcastId}
         title={podcast?.title ?? ''}
         author={podcast?.author ?? ''}
-        image={podcast?.image ?? ''}
+        image={podcast?.image || null}
         description={podcast?.description ?? ''}
       />
-      <div className={styles.main}>
+      <div className={layoutStyles.main}>
         <div className={styles.episodeCard}>
           <h1 className={styles.title}>{episode.title}</h1>
           <div 
