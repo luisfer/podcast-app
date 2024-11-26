@@ -22,9 +22,9 @@ export function PodcastDetail({ podcastId }: PodcastDetailProps) {
         id={podcastId}
         title={podcast?.title ?? 'Loading...'}
         author={podcast?.author ?? 'Loading...'}
-        image={podcast?.image ?? ''}
+        image={podcast?.image || null}
         description={podcast?.description ?? 'Loading...'}
-      />
+      />    
       <div className={styles.main}>
         {loading ? (
           <p>Loading episodes...</p>

@@ -5,7 +5,7 @@ interface PodcastSidebarProps {
   id: string;
   title: string;
   author: string;
-  image: string;
+  image: string | null;
   description: string;
 }
 
@@ -20,11 +20,13 @@ export function PodcastSidebar({
     <aside className={styles.sidebar}>
       <div className={styles.imageContainer}>
         <Link href={`/podcast/${id}`}>
-          <img 
-            src={image} 
-            alt={`${title} cover`} 
-            className={styles.image}
-          />
+          {image && (
+            <img 
+              src={image} 
+              alt={`${title} cover`} 
+              className={styles.image}
+            />
+          )}
         </Link>
       </div>
       
