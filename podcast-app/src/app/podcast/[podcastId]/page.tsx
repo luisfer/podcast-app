@@ -1,18 +1,19 @@
-import { PodcastDetail } from '@/app/components/PodcastDetail';
 import { Suspense } from 'react';
+import { PodcastDetail } from '@/app/components/PodcastDetail';
+import { use } from 'react';
 
-interface PodcastDetailPageProps {
-  params: {
-    podcastId: string;
-  }
-}
+type Params = Promise<{ podcastId: string }>;
 
-export default async function PodcastDetailPage({ params }: PodcastDetailPageProps) {
-  const podcastId = params.podcastId;
-  
+export default function PodcastDetailPage({
+  params,
+}: {
+  params: Params;
+}) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PodcastDetail podcastId={podcastId} />
+      <PodcastDetail 
+        podcastId={use(params).podcastId}
+      />
     </Suspense>
   );
 }

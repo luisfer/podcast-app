@@ -1,22 +1,19 @@
 import { Suspense } from 'react';
 import { EpisodeDetail } from '@/app/components/EpisodeDetail';
+import { use } from 'react';
 
-interface EpisodeDetailPageProps {
-  params: {
-    podcastId: string;
-    episodeId: string;
-  }
-}
+type Params = Promise<{ podcastId: string, episodeId: string }>
 
-export default async function EpisodeDetailPage({ params }: EpisodeDetailPageProps) {
-  const podcastId = await Promise.resolve(params.podcastId);
-  const episodeId = await Promise.resolve(params.episodeId);
-  
+export default function EpisodeDetailPage({
+  params,
+}: {
+  params: Params;
+}) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <EpisodeDetail 
-        podcastId={podcastId}
-        episodeId={episodeId}
+        podcastId={use(params).podcastId}
+        episodeId={use(params).episodeId}
       />
     </Suspense>
   );

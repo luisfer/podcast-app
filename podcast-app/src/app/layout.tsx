@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { Header } from '@/app/components/Header';
 import './styles/variables.css';
 import './globals.css';
+import { Suspense } from 'react';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -14,18 +15,8 @@ export const metadata: Metadata = {
   title: 'Podcaster',
   description: 'Listen to your favorite podcasts',
   applicationName: 'Podcaster',
-  authors: [{ name: 'Podcaster Team' }],
+  authors: [{ name: 'Luisfer Romero Calero' }],
   keywords: ['podcast', 'audio', 'streaming', 'episodes'],
-  viewport: 'width=device-width, initial-scale=1',
-  robots: 'index, follow',
-  themeColor: '#ffffff',
-  manifest: '/manifest.json',
-  openGraph: {
-    type: 'website',
-    title: 'Podcaster',
-    description: 'Listen to your favorite podcasts',
-    siteName: 'Podcaster'
-  }
 };
 
 export default function RootLayout({
@@ -36,10 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Header />
           <main className="main">
             {children}
           </main>
+        </Suspense>
       </body>
     </html>
   );
