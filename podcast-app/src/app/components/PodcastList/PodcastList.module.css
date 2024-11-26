@@ -1,8 +1,10 @@
 .container {
   padding: var(--spacing-lg) 0;
+  margin-top: var(--header-height);
 }
 
 .filterSection {
+  margin-top: var(--header-height);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -25,6 +27,9 @@
   font-size: var(--font-size-md);
   width: 300px;
   transition: border-color var(--transition-quick);
+  background-color: #ffffff;
+  outline: none;
+  color: var(--text-color);
 }
 
 .searchInput:focus {

@@ -56,7 +56,7 @@ body {
 }
 
 .main {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - var(--header-height));
   padding: var(--spacing-lg) 0;
 }
 

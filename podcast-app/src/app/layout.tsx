@@ -13,6 +13,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Podcaster',
   description: 'Listen to your favorite podcasts',
+  applicationName: 'Podcaster',
+  authors: [{ name: 'Podcaster Team' }],
+  keywords: ['podcast', 'audio', 'streaming', 'episodes'],
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
+  themeColor: '#ffffff',
+  manifest: '/manifest.json',
+  openGraph: {
+    type: 'website',
+    title: 'Podcaster',
+    description: 'Listen to your favorite podcasts',
+    siteName: 'Podcaster'
+  }
 };
 
 export default function RootLayout({
@@ -23,10 +36,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        <Header />
-        <main className="main">
-          {children}
-        </main>
+          <Header />
+          <main className="main">
+            {children}
+          </main>
       </body>
     </html>
   );

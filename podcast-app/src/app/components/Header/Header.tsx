@@ -2,35 +2,25 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 import styles from './Header.module.css';
 
 export function Header() {
   const [isLoading, setIsLoading] = useState(false);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
+  // Set loading to true when navigation starts
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    setIsLoading(true);
+    
+    // Navigation completed
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
 
-    function onRouteChangeStart() {
-      setIsLoading(true);
-    }
-
-    function onRouteChangeComplete() {
-      timeoutId = setTimeout(() => {
-        setIsLoading(false);
-      }, 100);
-    }
-
-    window.addEventListener('routeChangeStart', onRouteChangeStart);
-    window.addEventListener('routeChangeComplete', onRouteChangeComplete);
-    window.addEventListener('routeChangeError', onRouteChangeComplete);
-
-    return () => {
-      window.removeEventListener('routeChangeStart', onRouteChangeStart);
-      window.removeEventListener('routeChangeComplete', onRouteChangeComplete);
-      window.removeEventListener('routeChangeError', onRouteChangeComplete);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [pathname, searchParams]);
 
   return (
     <header className={styles.header}>
@@ -38,7 +28,7 @@ export function Header() {
         <Link href="/" className={styles.title}>
           Podcaster
         </Link>
-        {isLoading && <div className={styles.loader} />}
+        <div className={`${styles.loader} ${isLoading ? styles.visible : ''}`} />
       </div>
     </header>
   );
