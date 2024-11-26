@@ -2,6 +2,7 @@
   "name": "podcast-app",
   "version": "0.1.0",
   "private": true,
+  "author": "Luisfer Romero Calero",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,3 +25,4 @@
     "typescript": "^5"
   }
 }
+
