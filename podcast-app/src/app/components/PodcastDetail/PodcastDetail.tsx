@@ -1,6 +1,7 @@
 'use client';
 
 import { PodcastSidebar } from '@/app/components/PodcastSidebar';
+import { EpisodesList } from '@/app/components/EpisodesList';
 import { usePodcastDetails } from '@/hooks/usePodcastDetail';
 import styles from './PodcastDetail.module.css';
 
@@ -28,9 +29,10 @@ export function PodcastDetail({ podcastId }: PodcastDetailProps) {
         {loading ? (
           <p>Loading episodes...</p>
         ) : (
-          <div>
-            <h2>Episodes: {episodes.length}</h2>
-          </div>
+          <EpisodesList 
+            episodes={episodes} 
+            podcastId={podcastId} 
+          />
         )}
       </div>
     </div>
