@@ -2,6 +2,8 @@
 
 ![Podcast App](https://raw.githubusercontent.com/luisfer/podcast-app/refs/heads/main/podcast-app/public/images/1.png)
 
+Live demo (temporarily): https://podcaster-liart.vercel.app/
+
 ## Overview
 Web application for listening to music podcasts, built with Next.js, React, and TypeScript. Users can browse top 100 podcasts, view podcast details, and listen to episodes.
 
