@@ -1,0 +1,18 @@
+.layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+  }
+  
+  .main {
+    flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+  }

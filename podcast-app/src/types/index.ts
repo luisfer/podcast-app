@@ -22,3 +22,20 @@ export interface ItunesPodcast {
     summary?: { label: string };
     'im:image': Array<{ label: string }>;
   }
+  export interface ItunesEpisode {
+    trackId: number;
+    trackName: string;
+    description: string;
+    previewUrl: string;
+    releaseDate: string;
+    trackTimeMillis: number;
+  }
+  
+  export interface ItunesPodcastResponse {
+    results: Array<{
+      collectionName: string;
+      artistName: string;
+      artworkUrl600: string;
+      description?: string;
+    } | ItunesEpisode>;
+  }
