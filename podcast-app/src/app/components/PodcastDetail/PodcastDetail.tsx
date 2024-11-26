@@ -2,8 +2,8 @@
 
 import { PodcastSidebar } from '@/app/components/PodcastSidebar';
 import { EpisodesList } from '@/app/components/EpisodesList';
-import { usePodcastDetails } from '@/hooks/usePodcastDetail';
-import styles from './PodcastDetail.module.css';
+import { usePodcastDetails } from '@/hooks/usePodcastDetails';
+import styles from '../../podcast/[podcastId]/styles.module.css';
 
 interface PodcastDetailProps {
   podcastId: string;
