@@ -5,7 +5,7 @@ import { Header } from '@/app/components/Header';
 import './styles/variables.css';
 import './globals.css';
 import { Suspense } from 'react';
-import Loading from '@/app/components/Loading/loading';
+import Loading from '@/app/components/Loading/Loading';
 
 const inter = Inter({ 
   subsets: ['latin'],
