@@ -3,37 +3,32 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { usePodcasts } from '@/hooks/usePodcasts';
+import { useTopPodcasts } from '@/hooks/useQueries';
 import styles from './PodcastList.module.css';
+import { Podcast } from '@/types';
 
-export function PodcastList() {
-  const { podcasts, loading, error } = usePodcasts();
+export async function PodcastList() {
   const [searchTerm, setSearchTerm] = useState('');
+  const { data: podcasts, isLoading } = useTopPodcasts();
 
   const filteredPodcasts = useMemo(() => {
     if (!searchTerm.trim()) return podcasts;
 
     const searchLower = searchTerm.toLowerCase();
-    return podcasts.filter(
+    return podcasts?.filter(
       podcast =>
         podcast.title.toLowerCase().includes(searchLower) ||
         podcast.author.toLowerCase().includes(searchLower)
     );
   }, [podcasts, searchTerm]);
 
-  if (error) {
-    return (
-      <div className="container">
-        <p>Error loading podcasts: {error.message}</p>
-      </div>
-    );
-  }
-
+  if (isLoading) return <div>Loading podcasts...</div>;
+  
   return (
     <div className="container">
       <div className={styles.filterSection}>
         <span className={styles.counter}>
-          {filteredPodcasts.length}
+          {filteredPodcasts?.length}
         </span>
         <input
           type="text"
@@ -45,29 +40,25 @@ export function PodcastList() {
         />
       </div>
 
-      {loading ? (
-        <p>Loading podcasts...</p>
-      ) : (
-        <div className={styles.grid}>
-          {filteredPodcasts.map((podcast) => (
-            <Link
-              key={podcast.id}
-              href={`/podcast/${podcast.id}`}
-              className={styles.card}
-            >
-              <img
-                src={podcast.image}
-                alt={`${podcast.title} cover`}
-                className={styles.image}
-              />
-              <div className={styles.content}>
-                <h2 className={styles.title}>{podcast.title}</h2>
-                <p className={styles.author}>Author: {podcast.author}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
+      <div className={styles.grid}>
+        {filteredPodcasts?.map((podcast) => (
+          <Link
+            key={podcast.id}
+            href={`/podcast/${podcast.id}`}
+            className={styles.card}
+          >
+            <img
+              src={podcast.image}
+              alt={`${podcast.title} cover`}
+              className={styles.image}
+            />
+            <div className={styles.content}>
+              <h2 className={styles.title}>{podcast.title}</h2>
+              <p className={styles.author}>Author: {podcast.author}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

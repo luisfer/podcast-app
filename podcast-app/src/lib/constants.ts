@@ -5,3 +5,5 @@ export const ITUNES_API = {
   PODCAST_DETAILS: (id: string, limit: number = 20) => 
     `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`
 };
+
+export const LIMIT = 100;

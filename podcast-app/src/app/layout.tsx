@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Header } from '@/app/components/Header';
@@ -27,13 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Header />
-          <main className="main">
-            {children}
-          </main>
-        </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Header />
+            <main className="main">
+              {children}
+            </main>
+          </Suspense>
       </body>
     </html>
   );
 }
+
