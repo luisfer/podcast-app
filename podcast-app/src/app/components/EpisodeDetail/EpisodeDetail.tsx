@@ -47,6 +47,7 @@ export function EpisodeDetail({ podcastId, episodeId }: EpisodeDetailProps) {
             className={styles.audioPlayer}
             controls
             src={episode.audioUrl}
+            data-testid="audio-player"
           >
             Your browser does not support the audio element.
           </audio>

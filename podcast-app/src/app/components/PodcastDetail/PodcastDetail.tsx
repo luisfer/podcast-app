@@ -27,7 +27,7 @@ export function PodcastDetail({ podcastId }: PodcastDetailProps) {
       />    
       <div className={styles.main}>
         {loading ? (
-          <p>Loading episodes...</p>
+          <p data-testid="loading-episodes">Loading episodes...</p>
         ) : (
           <EpisodesList 
             episodes={episodes} 

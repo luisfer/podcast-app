@@ -1,8 +1,8 @@
-// src/hooks/usePodcastDetails.ts
 'use client';
 
 import { useState, useEffect } from 'react';
 import { Podcast, Episode, ItunesEpisode } from '@/types';
+import { CACHE_DURATION } from '@/lib/constants';
 
 interface PodcastDetails {
   podcast: Podcast | null;
@@ -35,8 +35,7 @@ export function usePodcastDetails(podcastId: string): PodcastDetails {
           const timestamp = parseInt(cachedTimestamp, 10);
           const now = Date.now();
           
-          // If cache is less than 24 hours old
-          if (now - timestamp < 24 * 60 * 60 * 1000) {
+          if (now - timestamp < CACHE_DURATION) {
             const parsed = JSON.parse(cachedData);
             setPodcast(parsed.podcast);
             setEpisodes(parsed.episodes);
@@ -45,7 +44,6 @@ export function usePodcastDetails(podcastId: string): PodcastDetails {
           }
         }
 
-        // Fetch podcast details using allorigins to avoid CORS issues
         const response = await fetch(
           `${corsProxy}${encodeURIComponent(
             `${podcastApi}${podcastId}${params}`
@@ -82,7 +80,6 @@ export function usePodcastDetails(podcastId: string): PodcastDetails {
           duration: new Date(episode.trackTimeMillis).toISOString().substr(11, 8)
         }));
 
-        // Cache the data
         localStorage.setItem(`podcast-${podcastId}`, JSON.stringify({
           podcast: podcastInfo,
           episodes: episodesList

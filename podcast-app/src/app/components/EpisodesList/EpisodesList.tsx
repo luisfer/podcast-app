@@ -11,7 +11,7 @@ export function EpisodesList({ episodes, podcastId }: EpisodesListProps) {
   return (
     <div className={styles.container}>
       <div className={styles.episodeCount}>
-        <h2>Episodes: {episodes.length}</h2>
+        {episodes && episodes?.length > 0 && <h2>Episodes: {episodes.length}</h2>}
       </div>
       
       <div className={styles.episodesTable}>
@@ -24,7 +24,7 @@ export function EpisodesList({ episodes, podcastId }: EpisodesListProps) {
             </tr>
           </thead>
           <tbody>
-            {episodes.map((episode) => (
+            {episodes && episodes?.length > 0 && episodes.map((episode) => (
               <tr key={episode.id} className={styles.tableRow}>
                 <td className={styles.tableCell}>
                   <Link

@@ -8,7 +8,7 @@ import styles from './PodcastList.module.css';
 
 export function PodcastList() {
   const [searchTerm, setSearchTerm] = useState('');
-  const { data: podcasts, isLoading } = useTopPodcasts();
+  const { data: podcasts, isLoading, error } = useTopPodcasts();
 
   const [filteredPodcasts, setFilteredPodcasts] = useState(podcasts || []);
 
