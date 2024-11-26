@@ -8,11 +8,14 @@ Live demo (temporarily): https://podcaster-liart.vercel.app/
 Web application for listening to music podcasts, built with Next.js, React, and TypeScript. Users can browse top 100 podcasts, view podcast details, and listen to episodes.
 
 ## Technologies Used
-- **Next.js 14**: App Router for server-side and client-side rendering
-- **React**: UI library with hooks
+- **Next.js 15**: App Router for server-side and client-side rendering
+- **React 18**: UI library with hooks
 - **TypeScript**: Type safety and better developer experience
 - **React Query**: Data fetching and caching
 - **CSS Modules**: Scoped styling without component libraries
+- **Jest (and Jest DOM)**: Unit testing
+- **React Testing Library**: UI testing
+- **ESLint**: Code quality
 
 ## Architecture
 ### App Structure
