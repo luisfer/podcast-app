@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Podcaster
 
-## Getting Started
+## Overview
+Web application for listening to music podcasts, built with Next.js, React, and TypeScript. Users can browse top 100 podcasts, view podcast details, and listen to episodes.
 
-First, run the development server:
+## Technologies Used
+- **Next.js 14**: App Router for server-side and client-side rendering
+- **React**: UI library with hooks
+- **TypeScript**: Type safety and better developer experience
+- **React Query**: Data fetching and caching
+- **CSS Modules**: Scoped styling without component libraries
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Architecture
+### App Structure
+```
+src/
+  ├── app/                  # Next.js App Router
+  │   ├── podcast/         # Podcast routes
+  │   └── components/      # Shared components
+  ├── types/               # TypeScript interfaces
+  ├── hooks/               # Custom hooks
+  ├── api/                 # API functions
+  └── lib/                 # Utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Architecture Decisions
+1. **Next.js App Router**
+   - Provides built-in routing
+   - Server-side rendering capabilities
+   - Optimal for SEO
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **React Query Integration**
+   - Efficient data fetching and caching
+   - Built-in loading and error states
+   - Handles cache invalidation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Custom CSS from Scratch**
+   - No component libraries used
+   - Demonstrates CSS proficiency
+   - Fully responsive design
+   - CSS module per component to make every component reusable, to closer to the micro-frontend architecture and the atomic design principles
 
-## Learn More
+4. **TypeScript Throughout**
+   - Type safety across the application
+   - Better development experience
+   - Enhanced code maintainability
 
-To learn more about Next.js, take a look at the following resources:
+## Component Structure
+1. **PodcastList**
+   - Main view with filtering
+   - Real-time search in titles and authors
+   - Displays count of shown podcasts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **PodcastDetail**
+   - Shows podcast information
+   - Lists episodes with details
+   - Uses shared sidebar component
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **EpisodeDetail**
+   - HTML5 audio player
+   - HTML-rendered description
+   - Reuses sidebar component
 
-## Deploy on Vercel
+4. **Sidebar**
+   - Reusable component
+   - Used in PodcastDetail and EpisodeDetail components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Header**
+   - Reusable component
+   - Sticky header
+   - Uses breadcrumb to show the current path, clickable to navigate back
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Cache Strategy
+- 24-hour client-side caching using React Query
+- Prevents unnecessary API calls
+- Cache invalidation after 24 hours
+- Improved user experience with instant loading
+
+## Setup Instructions
+
+### Development Mode
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+### Production Mode
+```bash
+# Build the application
+npm run build
+
+# Start production server
+npm run start
+```
+
+### Environment Requirements
+- Node.js 18.17 or later
+- NPM 10.2.4 or later
+
+## Performance Considerations
+1. **Client-side Caching**
+   - Minimizes API calls
+   - Improves response times
+   - 24-hour cache duration
+
+2. **Asset Optimization**
+   - Development: unminimized assets
+   - Production: minimized and concatenated assets
+
+3. **Image Optimization**
+   - Responsive images
+   - Lazy loading
+
+## Design Decisions
+1. **Component Architecture**
+   - Reusable components (sidebar, header)
+   - Clear separation of concerns
+   - Modular and maintainable
+
+2. **State Management**
+   - React Query for server state
+   - Local state with hooks
+   - Clear data flow
+
+3. **Styling Approach**
+   - CSS Modules for scoped styles
+   - Custom variables for theming
+   - No external UI libraries
+
+## Key Features
+- Browse top 100 podcasts
+- Filter by title and author
+- View podcast details
+- Listen to episodes
+- 24-hour caching
+- Loading indicators
+- Responsive design
