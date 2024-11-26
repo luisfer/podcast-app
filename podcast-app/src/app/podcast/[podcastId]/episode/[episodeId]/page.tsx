@@ -8,8 +8,7 @@ interface PodcastDetailPageProps {
 }
 
 export default async function PodcastDetailPage({ params }: PodcastDetailPageProps) {
-  const podcastId = await Promise.resolve(params.podcastId);
-  
+  const podcastId = params.podcastId;
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <PodcastDetail podcastId={podcastId} />
