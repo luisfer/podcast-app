@@ -100,6 +100,11 @@ npm run build
 npm run start
 ```
 
+### Testing
+```bash
+npm run test
+```
+
 ### Environment Requirements
 - Node.js 18.17 or later
 - NPM 10.2.4 or later
@@ -215,7 +220,7 @@ Optional Improvements:
 - CSS variables usage
 - Header with breadcrumbs
 
-## Testing
+## About Testing
 
 - Jest for unit testing
 - React Testing Library for UI testing
