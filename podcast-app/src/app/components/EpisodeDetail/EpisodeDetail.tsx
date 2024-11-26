@@ -4,7 +4,7 @@ import { PodcastSidebar } from '@/app/components/PodcastSidebar';
 import styles from '../../podcast/[podcastId]/episode/[episodeId]/styles.module.css';
 import layoutStyles from '../../podcast/[podcastId]/styles.module.css';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
-import Loading from '@/app/components/Loading/loading';
+import Loading from '@/app/components/Loading/Loading';
 
 interface EpisodeDetailProps {
   podcastId: string;

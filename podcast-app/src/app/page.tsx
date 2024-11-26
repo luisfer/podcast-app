@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-quer
 import { Suspense } from 'react';
 import { getTopPodcasts } from '@/lib/api/podcasts';
 import { ReactQueryClientProvider } from '@/app/components/ReactQueryClientProvider';
-import Loading from '@/app/components/Loading/loading';
+import Loading from '@/app/components/Loading/Loading';
 function HomePage() {
   return (
     <ReactQueryClientProvider>
