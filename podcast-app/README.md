@@ -1,5 +1,7 @@
 # Podcaster
 
+![Podcast App](https://raw.githubusercontent.com/luisfer/podcast-app/refs/heads/main/podcast-app/public/images/1.png)
+
 ## Overview
 Web application for listening to music podcasts, built with Next.js, React, and TypeScript. Users can browse top 100 podcasts, view podcast details, and listen to episodes.
 
@@ -46,6 +48,7 @@ src/
    - Enhanced code maintainability
 
 ## Component Structure
+
 1. **PodcastList**
    - Main view with filtering
    - Real-time search in titles and authors
@@ -70,6 +73,7 @@ src/
    - Sticky header
    - Uses breadcrumb to show the current path, clickable to navigate back
 
+![Podcast App](https://raw.githubusercontent.com/luisfer/podcast-app/refs/heads/main/podcast-app/public/images/2.png)
 ## Cache Strategy
 - 24-hour client-side caching using React Query
 - Prevents unnecessary API calls
@@ -138,6 +142,8 @@ npm run start
 - 24-hour caching
 - Loading indicators
 - Responsive design
+
+![Podcast App](https://raw.githubusercontent.com/luisfer/podcast-app/refs/heads/main/podcast-app/public/images/3.png)
 
 
 ## Requirements vs Implementation
