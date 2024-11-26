@@ -3,7 +3,7 @@
     grid-template-columns: 300px 1fr;
     gap: var(--spacing-lg);
     max-width: 1200px;
-    margin: 0 auto;
+    margin: calc(var(--spacing-xl) * 2) auto var(--spacing-xl);
     padding: var(--spacing-lg);
   }
   
