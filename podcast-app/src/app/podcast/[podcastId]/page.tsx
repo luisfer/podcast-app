@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { PodcastDetail } from '@/app/components/PodcastDetail';
 import { use } from 'react';
-import Loading from '@/app/components/Loading/loading';
+import Loading from '@/app/components/Loading/Loading';
 
 type Params = Promise<{ podcastId: string }>;
 

@@ -205,6 +205,20 @@ Code Quality Requirements:
 
 Optional Improvements:
 
-- Application deployed
 - SSR implementation
 - CSS variables usage
+- Header with breadcrumbs
+
+## Testing
+
+- Jest for unit testing
+- React Testing Library for UI testing
+- @testing-library/jest-dom for better assertions
+
+Make sure to run `npm install --save-dev @testing-library/jest-dom` to install the testing-library/jest-dom package. And to have:
+
+```
+import '@testing-library/jest-dom'
+```
+
+in your `jest.setup.js` file.

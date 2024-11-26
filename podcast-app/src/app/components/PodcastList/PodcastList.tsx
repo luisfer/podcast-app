@@ -5,7 +5,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useTopPodcasts } from '@/hooks/useQueries';
 import styles from './PodcastList.module.css';
-import Loading from '@/app/components/Loading/loading';
+import Loading from '@/app/components/Loading/Loading';
 
 export function PodcastList() {
   const [searchTerm, setSearchTerm] = useState('');
