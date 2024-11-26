@@ -21,7 +21,7 @@ export async function getTopPodcasts(): Promise<Podcast[]> {
   }
 
   try {
-    const response = await fetchWithError(ITUNES_API.TOP_PODCASTS);
+    const response = await fetchWithError(ITUNES_API.TOP_PODCASTS());
     const data = await response.json();
     
     const podcasts = data.feed.entry.map((entry: ItunesPodcast) => ({
