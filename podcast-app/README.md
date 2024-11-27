@@ -51,6 +51,10 @@ src/
    - Type safety across the application
    - Better development experience
    - Enhanced code maintainability
+  
+5. **Data Across Components**
+
+  - Despite not using React Context API explicitly, the data flow for fetching / caching podcasts and episodes follows the use of hooks to share the data across components
 
 ## Component Structure
 
